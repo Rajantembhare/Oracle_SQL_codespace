@@ -20,8 +20,8 @@ cells:
     languageId: oracle-sql
   - kind: 2
     value: |
-      INSLRI INIO discount(discount_name,amount,start_date, expired_date)
-      VALUES('Summer Promotaion',9.5,DATE '2017-05-01,'DATE '2017-08-31');
+      INSERT INTO discount(discount_name,amount,start_date, expired_date)
+      VALUES('Summer Promotaion',9.5,DATE '2017-05-01,DATE '2017-08-31');
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -65,15 +65,15 @@ cells:
     languageId: oracle-sql
   - kind: 2
     value: |
-      INSERT INTO sales (custoner_id, product_id, order_date,total)
+      INSERT INTO  sales(customer_id, product_id, order_date,total)
       SELECT customer_id,
       product_id,
       order_date,
       SUM(quantity * unit_price) amount
       FROM orders
       INNER JOIN order_items USING(order_id)
-      MIERE status = 'Shipped '
-      GROUP BY custoner_id,
+      WHERE status = 'Shipped'
+      GROUP BY customer_id,
       Product_id,
       order_date;
     languageId: oracle-sql
@@ -148,9 +148,9 @@ cells:
       UPDATE
       table_name
       SET
-      columnl = value,
-      column2 = value2,
-      column3 = value3,
+      columnl =value,
+      column2 =value2,
+      column3 =value3,
       ...
       WHERE
       condition;

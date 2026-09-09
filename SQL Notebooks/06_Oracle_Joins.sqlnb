@@ -123,7 +123,7 @@ cells:
   - kind: 2
     value: |
       SELECT
-         name AS customer name,
+         name AS customer_name,
          order_id,
          order_date,
          item_id,
@@ -132,7 +132,7 @@ cells:
       FROM
          orders
       INNER JOIN order_items USING(order_id)
-      IVIER JOIN customers USING(customer_id)
+      INNER JOIN customers USING(customer_id)
       ORDER BY
             order_date DESC,
             order_id DESC,
@@ -152,7 +152,7 @@ cells:
           orders
       INNER JOIN order_items
                  USING(order_id)
-      INNER JOIN custcmers
+      INNER JOIN customers
                  USING(customer_id)
       INNER JOIN products
                  USING(product_id)
@@ -164,7 +164,7 @@ cells:
   - kind: 2
     value: |
       SELECT
-          coltnn_list
+          column_list
        FROM
           T1
       LEFT JOIN T2 ON
@@ -179,7 +179,7 @@ cells:
           last_name
       FROM
          orders
-      LEFT JOIN = employees ON employee_id salesman_id
+      LEFT JOIN employees ON employee_id=salesman_id
       ORDER BY
       order_date DESC;
     languageId: oracle-sql
@@ -194,8 +194,8 @@ cells:
       FROM
           orders
       LEFT JOIN employees ON
-           employee_id = salesnan_id
-      LEFT JOIN customers ON
+           employee_id = salesman_id
+      LEFT JOIN CUSTOMERS ON
            customer.customer_id = orders.customer_id
       ORDER BY
             order_date DESC;
@@ -378,15 +378,15 @@ cells:
     value: |
       SELECT
       el. hire_date,
-      (el.first_næme || ' ' || el.last_name) employee1,
+      (e1.first_næme || ' ' || e1.last_name) employee1,
       (e2.first_name || ' ' || e2.last_name) employee2
       FROM
-      employees el
+      employees e1
       INNER JOIN employees e2 ON
       e1.employee_id> e2.employee_id
-      AND el.hire_date = e2.hire_date
+      AND e1.hire_date = e2.hire_date
       ORDER BY
-      e1.hire_date DESC'
+      e1.hire_date DESC,
       employee1,
       employee2;
     languageId: oracle-sql

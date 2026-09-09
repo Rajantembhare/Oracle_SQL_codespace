@@ -5,7 +5,7 @@ cells:
       column_list
       FROM
       T
-      GROJP BY c1,c2,c3;
+      GROuP BY c1,c2,c3;
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -58,7 +58,7 @@ cells:
     value: |
       SELECT
       name,
-      COUNNT( order_id )
+      COUNT( order_id )
       FROM
       orders
       INNER JOIN customers
